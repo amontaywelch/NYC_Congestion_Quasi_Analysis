@@ -132,10 +132,14 @@ approximately **$32M per month**. This includes an **$85.2M drop in base fares**
 and a **$10.7M decline in tips**, the latter having direct implications for driver 
 earnings in the post-fee environment.
 
+![Overall revenue loss](nyc_rideshare_total_revenue_lost.png)
+
 Manhattan alone accounted for **$50.2M of the $95.8M total decline**, representing 
 52% of all gross booking losses despite making up only 34% of total trips. This 
 disproportionate impact confirms the congestion zone as the primary driver of 
 revenue loss and the highest priority area for retention strategies.
+
+![Manhattan revenue loss](nyc_rideshare_manhattan_revenue_lost.png)
 
 It is important to note that this comparison is not perfectly isolated. December 
 2024 is a historically high volume month due to holiday travel, which may inflate 
