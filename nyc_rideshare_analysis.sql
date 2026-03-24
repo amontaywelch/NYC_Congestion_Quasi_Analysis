@@ -228,7 +228,7 @@ SELECT
 FROM `project-715687c4-6754-4729-834.nyc_rideshare.rideshare_clean`;
 
 
--- time of day analysis to identify if congestion pricing shifted ridership patterns by hour -- EXPORT
+-- time of day analysis to identify if congestion pricing shifted ridership patterns by hour
 SELECT
   period,
   EXTRACT(HOUR FROM pickup_datetime) as hour_of_day,
@@ -241,7 +241,7 @@ GROUP BY period, hour_of_day
 ORDER BY hour_of_day, period DESC;
 
 
--- congestion fee breakdown showing charge rate, average fee, and total revenue collected -- EXPORT
+-- congestion fee breakdown showing charge rate, average fee, and total revenue collected
 SELECT
   COUNTIF(cbd_congestion_fee > 0) as trips_charged_fee,
   COUNTIF(cbd_congestion_fee = 0) as trips_not_charged,
@@ -255,7 +255,7 @@ FROM `project-715687c4-6754-4729-834.nyc_rideshare.rideshare_clean`
 WHERE period = 'after';
 
 
--- overall before vs after comparison across key trip metrics -- EXPORT
+-- overall before vs after comparison across key trip metrics
 SELECT
   period,
   COUNT(*) as total_trips,
@@ -270,7 +270,7 @@ GROUP BY period
 ORDER BY period DESC;
 
 
--- Manhattan-specific trip metrics, isolated as the primary congestion zone -- EXPORT
+-- Manhattan-specific trip metrics, isolated as the primary congestion zone
 SELECT
   period,
   COUNT(*) as total_trips,
@@ -305,7 +305,7 @@ ORDER BY total_trips DESC
 LIMIT 25;
 
 
--- top 25 zones ranked by largest trip volume decline after congestion pricing -- EXPORT
+-- top 25 zones ranked by largest trip volume decline after congestion pricing
 WITH before_data AS (
   SELECT
     z.zone,
@@ -347,7 +347,7 @@ ORDER BY trip_change_pct ASC
 LIMIT 25;
 
 
--- borough level summary of trip volume, fare, duration and distance before vs after -- EXPORT
+-- borough level summary of trip volume, fare, duration and distance before vs after
 SELECT
   z.borough,
   period,
@@ -363,7 +363,7 @@ GROUP BY z.borough, period
 ORDER BY borough, period DESC;
 
 
--- shared ride percentage by borough before vs after, excluding non-NYC zones -- EXPORT
+-- shared ride percentage by borough before vs after, excluding non-NYC zones
 SELECT
   z.borough,
   period,
@@ -377,7 +377,7 @@ GROUP BY z.borough, period
 ORDER BY borough, period DESC;
 
 
--- monthly trip volume and key metrics trend across the full analysis period -- EXPORT
+-- monthly trip volume and key metrics trend across the full analysis period
 SELECT
   FORMAT_DATE('%Y-%m', DATE(pickup_datetime)) as month,
   period,
